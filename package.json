@@ -1,0 +1,24 @@
+{
+  "name": "vite-ssr-playground",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "node develop",
+    "build:client": "vite build --outDir dist/client --ssrManifest",
+    "build:server": "vite build --outDir dist/server --ssr entrypoints/server.js",
+    "build": "npm run build:client && npm run build:server && node prerender",
+    "render": "npm run build && node preview render",
+    "static": "npm run build && node preview static"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.3",
+    "chalk": "^4.1.2",
+    "express": "^4.18.1",
+    "sirv": "^2.0.2",
+    "unplugin-vue-components": "^0.22.4",
+    "vite": "^3.0.4",
+    "vite-plugin-md": "^0.20.2"
+  },
+  "dependencies": {
+    "vue": "^3.2.37"
+  }
+}
